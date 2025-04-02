@@ -18,10 +18,7 @@ dependencies = [
 [tool.ppp.scripts]
 # Run a docker image with http server
 "docker-up" = "docker run -it -v bob:the_builder nvm" # [start|stop]
-"type" = "echo"                                       # text
-"shell" = "echo $SHELL"                               # text
-"list" = "source ~/.zshrc && ls"                      # [additional args]
-
+"type" = "echo"                                       # any text
 [dependency-groups]
 dev = ["pytest>=8.3.5", "ruff>=0.11.2"]
 

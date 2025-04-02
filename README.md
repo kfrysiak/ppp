@@ -5,7 +5,7 @@
 ## Installation
 
 ```sh
-uv add --dev ppp
+uv add --dev ppp-run
 ```
 
 ## Usage

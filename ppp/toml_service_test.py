@@ -1,6 +1,5 @@
 from pathlib import Path
 from unittest.mock import Mock
-import pytest
 from rich.console import Console
 
 from ppp.toml_service import Script, extract_scripts

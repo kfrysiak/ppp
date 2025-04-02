@@ -15,7 +15,7 @@ dependencies = [
     "types-toml>=0.10.8.20240310",
 ]
 
-[tool.pp.scripts]
+[tool.ppp.scripts]
 # Run a docker image with http server
 "docker-up" = "docker run -it -v bob:the_builder nvm" # [start|stop]
 "type" = "echo"                                       # text
@@ -23,10 +23,7 @@ dependencies = [
 "list" = "source ~/.zshrc && ls"                      # [additional args]
 
 [dependency-groups]
-dev = [
-    "pytest>=8.3.5",
-    "ruff>=0.11.2",
-]
+dev = ["pytest>=8.3.5", "ruff>=0.11.2"]
 
 [project.scripts]
 ppp = "ppp.cli:main"

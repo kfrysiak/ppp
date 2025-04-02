@@ -52,12 +52,12 @@ def run_script(scripts: list[Script], script_name: str, args: Any) -> None:
 def show_help() -> None:
     console.print("[bold green]Usage:[/bold green]")
     console.print(
-        "  [bold yellow]pp run <script> [args][/bold yellow] - Run a script with optional arguments"
+        "  [bold yellow]ppp run <script> [args][/bold yellow] - Run a script with optional arguments"
     )
     console.print(
-        "  [bold yellow]pp list[/bold yellow] - List available scripts with descriptions"
+        "  [bold yellow]ppp list[/bold yellow] - List available scripts with descriptions"
     )
-    console.print("  [bold yellow]pp help[/bold yellow] - Show this help message")
+    console.print("  [bold yellow]ppp help[/bold yellow] - Show this help message")
 
 
 def main() -> None:
@@ -84,7 +84,7 @@ def main() -> None:
         run_script(scripts, script_name, args)
     else:
         console.print(
-            "[bold red]Invalid command. Use 'pp help' for usage information.[/bold red]"
+            "[bold red]Invalid command. Use 'ppp help' for usage information.[/bold red]"
         )
         sys.exit(1)
 

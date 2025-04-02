@@ -18,6 +18,11 @@ header_pattern = re.compile(r"^\s*\[(.*?)\]\s*$")
 key_pattern = re.compile(r"""^([^\s=]+)\s*=.*(?<!['\"]).*""")
 comment_pattern = re.compile(r"""(#.*)$""")
 
+TOOL_HEADER = "tool"
+PPP_HEADER = "ppp"
+SCRIPTS_HEADER = "scripts"
+FULL_HEADER = f"{TOOL_HEADER}.{PPP_HEADER}.{SCRIPTS_HEADER}"
+
 
 def extract_toml_headers(line: str) -> Optional[str]:
     match = header_pattern.match(line)
@@ -76,7 +81,7 @@ def extract_scripts(file_path: Path, console: Console) -> list[Script]:
             line = line.strip()
             if not found_header:
                 header = extract_toml_headers(line)
-                if header is not None and header.startswith("tool.pp.scripts"):
+                if header is not None and header.startswith(FULL_HEADER):
                     found_header = True
                 continue
             else:
@@ -104,10 +109,12 @@ def extract_scripts(file_path: Path, console: Console) -> list[Script]:
     # use toml library and match the scripts by keys
     with open(file_path, "r") as file:
         toml_data = toml.load(file)
-        toml_scripts = toml_data.get("tool", {}).get("pp", {}).get("scripts", None)
+        toml_scripts = (
+            toml_data.get(TOOL_HEADER, {}).get(PPP_HEADER, {}).get(SCRIPTS_HEADER, None)
+        )
         if toml_scripts is None:
             console.print(
-                "Specify your scripts in [bold][tool.pp][/bold] section in [bold]pyproject.toml[/bold]"
+                "Specify your scripts in [bold][tool.ppp.scripts][/bold] section in [bold]pyproject.toml[/bold]"
             )
             return []
         for key, value in toml_scripts.items():

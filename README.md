@@ -1,4 +1,4 @@
-# PPP
+# ppp-run
 
 `ppp` is a simple script/alias runner for Python - akin to `npm run` in javascript world.
 

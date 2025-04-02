@@ -34,4 +34,4 @@ You can use comments to specify command or argument descriptions.
 
 Will result in
 
-![List result](documentation/list.png)
+![Available scripts: docker-up [start|stop] - Run a docker image with http server](documentation/list.png)

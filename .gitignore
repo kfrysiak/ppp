@@ -1,2 +1,4 @@
 __pycache__
-ppp_cli.egg-info
+ppp_run.egg-info
+dist
+build

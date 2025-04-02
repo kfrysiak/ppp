@@ -14,7 +14,8 @@
     "words": [
         "setuptools",
         "pyproject",
-        "Frysiak"
+        "Frysiak",
+        "pycache"
     ],
     "ignoreWords": [],
     "import": []

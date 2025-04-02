@@ -1,0 +1,30 @@
+# This is a tes
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ppp-cli"
+version = "0.1.0"
+description = "A CLI tool to run scripts from pyproject.toml"
+authors = [{ name = "Konrad Frysiak", email = "konrad.frysiak@gmail.com" }]
+dependencies = [
+    "rich",
+    "setuptools",
+    "toml>=0.10.2",
+    "types-setuptools>=78.1.0.20250329",
+    "types-toml>=0.10.8.20240310",
+]
+
+# Shouldn't get picked up
+[tool.pp.scripts]
+# Run a docker image with http server
+"docker-up" = "docker run -it -v bob:the_builder nvm" # [start|stop]
+"type" = "echo"                                       # text
+"shell" = "echo $SHELL"                               # text
+
+[dependency-groups]
+dev = ["pytest>=8.3.5", "ruff>=0.11.2"]
+
+[project.scripts]
+ppp = "ppp.cli:main"
